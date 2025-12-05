@@ -89,3 +89,8 @@ $RECYCLE.BIN/
 
 # Keep reports directory structure but not contents
 !reports/.gitkeep
+
+# Token files
+token
+*.token
+token
