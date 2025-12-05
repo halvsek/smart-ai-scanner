@@ -1,0 +1,84 @@
+# SMART AI Scanner - Enterprise Security Policy  
+# Balanced security for enterprise environments
+
+# File format handling (warn but don't block)
+dangerous_extensions:
+  - ".pkl"
+  - ".pickle"
+  - ".dill" 
+  - ".joblib"
+  - ".pt"
+  - ".pth"
+  - ".ckpt"
+
+# Security policies (balanced)
+block_dangerous_formats: false  # Warn instead of block
+allow_external_data: true
+require_safetensors: false
+block_custom_ops: false
+
+# Resource limits (moderate)
+max_file_size: 10737418240  # 10GB
+external_data_max: 67108864  # 64MB
+max_tensor_elems: 3000000000  # 3B elements
+
+# Pickle security (detect but allow with warnings)
+pickle_opcodes_warn:
+  - "GLOBAL"
+  - "REDUCE"
+  - "INST" 
+  - "STACK_GLOBAL"
+
+pickle_opcodes_block:
+  - "eval"
+  - "exec"
+  - "__import__"
+  - "subprocess"
+
+# ONNX operator policy
+onnx_forbidden_ops:
+  - "com.microsoft::FusedConv"  # Specific dangerous ops only
+  - "ai.onnx.preview::*"        # Preview ops
+
+onnx_warn_ops:
+  - "Loop"
+  - "If"
+  - "Scan" 
+
+# Framework settings
+keras_lambda_allowed: false
+tf_custom_ops_allowed: true  # Allow but warn
+
+# Entropy analysis (moderate thresholds)
+min_entropy_threshold: 1.0
+max_entropy_threshold: 7.8
+
+# Path traversal (essential protection)
+path_traversal_patterns:
+  - "../"
+  - "..\\/"
+  - "/etc/passwd"
+  - "/etc/shadow"
+  - "\\windows\\system32\\"
+  - "c:\\windows\\"
+
+# Executive detection (critical only)
+executable_signatures:
+  PE: ["4d5a"]
+  ELF: ["7f454c46"]
+  Shell: ["#!/bin/sh", "#!/bin/bash"]
+
+# Tokenizer security (moderate)
+tokenizer_red_flags:
+  - "eval("
+  - "exec("
+  - "__import__"
+  - "file://"
+  - "subprocess"
+
+# Custom rules for enterprise
+enterprise_rules:
+  max_model_complexity: 50000  # Max nodes/ops
+  require_model_signature: false
+  allow_dynamic_shapes: true
+  scan_external_dependencies: true

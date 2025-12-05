@@ -1,0 +1,93 @@
+# SMART AI Scanner - Strict Security Policy
+# Maximum security for production environments
+
+# File format restrictions
+dangerous_extensions:
+  - ".pkl"
+  - ".pickle" 
+  - ".dill"
+  - ".joblib"
+  - ".pt"
+  - ".pth"
+  - ".ckpt"
+  - ".mar"
+
+# Security policies
+block_dangerous_formats: true
+allow_external_data: false
+require_safetensors: true
+block_custom_ops: true
+
+# Resource limits (strict)
+max_file_size: 1073741824  # 1GB
+external_data_max: 16777216  # 16MB
+max_tensor_elems: 1000000000  # 1B elements
+
+# Pickle security (zero tolerance)
+pickle_opcodes_block:
+  - "GLOBAL"
+  - "REDUCE" 
+  - "INST"
+  - "OBJ"
+  - "NEWOBJ"
+  - "NEWOBJ_EX"
+  - "STACK_GLOBAL"
+  - "BUILD"
+  - "APPEND"
+  - "APPENDS"
+  - "SETITEM"
+  - "SETITEMS"
+
+# ONNX restrictions
+onnx_forbidden_ops:
+  - "Loop"
+  - "If" 
+  - "Scan"
+  - "com.microsoft::*"
+  - "ai.onnx.preview::*"
+  - "org.pytorch::*"
+  - "custom::*"
+
+# Keras/TensorFlow
+keras_lambda_allowed: false
+tf_custom_ops_allowed: false
+
+# Entropy thresholds
+min_entropy_threshold: 2.0
+max_entropy_threshold: 7.0
+
+# Path traversal protection
+path_traversal_patterns:
+  - ".."
+  - "/etc/"
+  - "/usr/"
+  - "/bin/"
+  - "/var/"
+  - "\\windows\\"
+  - "\\system32\\"
+  - "c:\\"
+  - "file://"
+  - "http://"
+  - "https://"
+
+# Executable signatures (all blocked)
+executable_signatures:
+  PE: ["4d5a"]
+  ELF: ["7f454c46"] 
+  Mach-O: ["feedface", "feedfacf"]
+  Java: ["cafebabe"]
+  Python: ["import ", "exec(", "eval("]
+
+# Tokenizer security
+tokenizer_red_flags:
+  - "\\x00"
+  - "\\x1a" 
+  - "\\x1b"
+  - "file://"
+  - "http://"
+  - "https://"
+  - "eval("
+  - "exec("
+  - "__import__"
+  - "subprocess"
+  - "os.system"

@@ -1,0 +1,89 @@
+# SMART-01 AI Security Scanner - Requirements
+# Production-grade ML model security analysis framework
+# Research-backed dependencies for comprehensive vulnerability detection
+
+# Core Framework Dependencies
+colorama>=0.4.6          # Terminal colors and styling
+rich>=13.0.0             # Advanced terminal UI components
+
+# ML Model Format Support
+numpy>=1.21.0            # Numerical operations for tensor analysis
+scipy>=1.7.0             # Scientific computing for statistical analysis
+
+# PyTorch Ecosystem
+torch>=1.11.0            # PyTorch model analysis (optional install)
+torchvision>=0.12.0      # PyTorch vision models support
+
+# TensorFlow Ecosystem  
+tensorflow>=2.8.0        # TensorFlow model analysis (optional install)
+keras>=2.8.0             # Keras model format support
+h5py>=3.6.0              # HDF5 file format support
+
+# ONNX Model Support
+onnx>=1.12.0             # ONNX model format parsing
+onnxruntime>=1.12.0      # ONNX runtime for metadata extraction
+
+# SafeTensors Support
+safetensors>=0.3.0       # SafeTensors format parsing
+
+# XGBoost/LightGBM/CatBoost Support
+xgboost>=1.6.0           # XGBoost model analysis
+lightgbm>=3.3.0          # LightGBM model support
+catboost>=1.0.0          # CatBoost model analysis
+
+# Hugging Face Ecosystem
+transformers>=4.20.0     # Transformer model analysis
+tokenizers>=0.12.0       # Tokenizer security analysis
+
+# File Format Analysis
+protobuf>=3.19.0         # Protocol buffer parsing (ONNX, TensorFlow)
+pyyaml>=6.0              # YAML configuration parsing
+
+# Security Analysis
+cryptography>=37.0.0     # Cryptographic hash verification
+python-magic>=0.4.27     # File type detection via magic bytes
+
+# Statistical Analysis
+scikit-learn>=1.1.0      # ML utilities for statistical analysis
+pandas>=1.4.0            # Data manipulation for analysis results
+
+# Network Analysis (for supply chain detection)
+requests>=2.28.0         # HTTP requests for metadata fetching
+urllib3>=1.26.0          # URL parsing and validation
+
+# Development and Testing
+pytest>=7.0.0            # Testing framework
+pytest-cov>=3.0.0        # Coverage reporting
+black>=22.0.0            # Code formatting
+flake8>=4.0.0            # Linting
+mypy>=0.950              # Type checking
+
+# Optional Advanced Dependencies
+# Uncomment for enhanced capabilities:
+
+# Advanced ML Libraries
+# onnx-simplifier>=0.4.0   # ONNX model simplification
+# onnx2torch>=1.5.0        # ONNX to PyTorch conversion
+# tf2onnx>=1.12.0          # TensorFlow to ONNX conversion
+
+# Advanced Security
+# yara-python>=4.2.0       # YARA rule engine integration
+# ssdeep>=3.4              # Fuzzy hashing for similarity detection
+# pefile>=2022.5.30        # PE file analysis for embedded executables
+
+# GPU Support (if available)
+# torch[cuda]              # CUDA-enabled PyTorch
+# tensorflow[gpu]          # GPU-enabled TensorFlow
+
+# Model Visualization
+# matplotlib>=3.5.0        # Plotting for analysis visualization
+# seaborn>=0.11.0          # Statistical visualization
+# graphviz>=0.20.0         # Model architecture visualization
+
+# Performance Optimization  
+# numba>=0.56.0            # JIT compilation for performance
+# cython>=0.29.0           # C extensions for speed
+
+# Note: Some packages are marked optional to reduce installation size
+# Core functionality works with minimal dependencies
+# Full research-grade analysis requires complete installation
