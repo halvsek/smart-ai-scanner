@@ -10,7 +10,7 @@ SMART-01 performs comprehensive security analysis of AI/ML artifacts **without e
 
 ---
 
-## 🎯 Key Features
+## Key Features
 
 ### Security-First Design
 - **Static Analysis Only** - Never executes or loads untrusted models
@@ -21,12 +21,12 @@ SMART-01 performs comprehensive security analysis of AI/ML artifacts **without e
 ### Threat Detection
 
 SMART-01 detects:
-- 🔴 **Pickle Deserialization Attacks** - Dangerous opcodes, code injection patterns
-- 🟠 **ONNX Security Issues** - Custom operators, external data references
-- 🔵 **PyTorch/Keras Risks** - Unsafe serialization, lambda layers
-- 🟢 **EvilModel Detection** - Embedded executables, magic byte analysis
-- ⚪ **Resource Exhaustion** - Large tensors, memory bombs, file size limits
-- 🟡 **Supply Chain Security** - Integrity checks, provenance validation
+- **Pickle Deserialization Attacks** - Dangerous opcodes, code injection patterns
+- **ONNX Security Issues** - Custom operators, external data references
+- **PyTorch/Keras Risks** - Unsafe serialization, lambda layers
+- **EvilModel Detection** - Embedded executables, magic byte analysis
+- **Resource Exhaustion** - Large tensors, memory bombs, file size limits
+- **Supply Chain Security** - Integrity checks, provenance validation
 
 ### Enterprise Features
 - **Multi-Format Output** - Console, JSON, SARIF for CI/CD integration
@@ -37,7 +37,7 @@ SMART-01 detects:
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -90,25 +90,25 @@ python smart-ai-scanner.py scan ./models -q --format json
 
 ---
 
-## 📦 Supported Formats
+## Supported Formats
 
 | Format | Extensions | Risk Level | Description |
 |--------|------------|------------|-------------|
-| **Pickle** | `.pkl`, `.pickle`, `.dill`, `.joblib` | 🔴 **CRITICAL** | Can execute arbitrary code |
-| **PyTorch** | `.pt`, `.pth`, `.ckpt`, `.mar` | 🔴 **CRITICAL** | Contains pickle data |
-| **ONNX** | `.onnx` | 🟠 **MEDIUM** | Custom operators possible |
-| **Keras/TF** | `.h5`, `.keras`, `.pb` | 🟡 **MEDIUM** | Lambda layers possible |
-| **SafeTensors** | `.safetensors` | 🟢 **LOW** | Safe by design |
-| **XGBoost** | `.model`, `.json`, `.ubj` | 🟡 **MEDIUM** | Binary format inspection |
-| **LightGBM** | `.txt`, `.model` | 🟡 **MEDIUM** | Text-based model files |
-| **CatBoost** | `.cbm`, `.bin` | 🟡 **MEDIUM** | Binary model format |
-| **GGUF/GGML** | `.gguf`, `.ggml` | 🟠 **MEDIUM** | Large language models |
-| **CoreML** | `.mlmodel`, `.mlpackage` | 🟡 **MEDIUM** | Apple ML format |
-| **Tokenizers** | `tokenizer.json`, `vocab.txt` | 🟢 **LOW** | Configuration files |
+| **Pickle** | `.pkl`, `.pickle`, `.dill`, `.joblib` | **CRITICAL** | Can execute arbitrary code |
+| **PyTorch** | `.pt`, `.pth`, `.ckpt`, `.mar` | **CRITICAL** | Contains pickle data |
+| **ONNX** | `.onnx` | **MEDIUM** | Custom operators possible |
+| **Keras/TF** | `.h5`, `.keras`, `.pb` | **MEDIUM** | Lambda layers possible |
+| **SafeTensors** | `.safetensors` | **LOW** | Safe by design |
+| **XGBoost** | `.model`, `.json`, `.ubj` | **MEDIUM** | Binary format inspection |
+| **LightGBM** | `.txt`, `.model` | **MEDIUM** | Text-based model files |
+| **CatBoost** | `.cbm`, `.bin` | **MEDIUM** | Binary model format |
+| **GGUF/GGML** | `.gguf`, `.ggml` | **MEDIUM** | Large language models |
+| **CoreML** | `.mlmodel`, `.mlpackage` | **MEDIUM** | Apple ML format |
+| **Tokenizers** | `tokenizer.json`, `vocab.txt` | **LOW** | Configuration files |
 
 ---
 
-## 🛡️ Security Policies
+## Security Policies
 
 ### Strict Policy
 - **Use Case**: Production environments, maximum security
@@ -136,7 +136,7 @@ python smart-ai-scanner.py scan ./models -q --format json
 
 ---
 
-## 🔍 Detection Examples
+## Detection Examples
 
 ### Dangerous Pickle Detection
 
@@ -151,7 +151,7 @@ data = {
 
 **Scanner Output:**
 ```
-🔴 CRITICAL: Unsafe pickle opcodes detected
+[CRITICAL] Unsafe pickle opcodes detected
    Found dangerous opcodes: GLOBAL, REDUCE
    This pickle file can execute arbitrary code during loading.
    CWE: CWE-502 (Deserialization of Untrusted Data)
@@ -160,7 +160,7 @@ data = {
 ### ONNX Custom Operator Detection
 
 ```
-🟠 MEDIUM: Custom ONNX operators detected
+[MEDIUM] Custom ONNX operators detected
    Found potentially dangerous operators: com.microsoft::FusedConv
    Custom operators may have unknown security implications.
    CWE: CWE-470 (Use of Externally-Controlled Input)
@@ -169,7 +169,7 @@ data = {
 ### EvilModel Detection
 
 ```
-🔴 CRITICAL: Embedded executable detected
+[CRITICAL] Embedded executable detected
    Found PE executable at offset 1024 in model file
    This indicates an EvilModel attack.
    CWE: CWE-506 (Embedded Malicious Code)
@@ -177,23 +177,23 @@ data = {
 
 ---
 
-## 📊 Output Formats
+## Output Formats
 
 ### Console Output
 Human-readable colored output with security recommendations:
 
 ```
-🔍 SECURITY FINDINGS
+SECURITY FINDINGS
 ─────────────────────────────────────────────────────────────────────
-🔴 CRITICAL (2 findings)
+[CRITICAL] (2 findings)
   1. Unsafe pickle opcodes detected
      Found dangerous opcodes: GLOBAL, REDUCE
      File: malicious_model.pkl
      CWE: CWE-502
      Recommendation: Use SafeTensors or ONNX format instead
 
-✅ All scanned files: 15
-⚠️  Total findings: 3 (2 critical, 1 medium)
+All scanned files: 15
+Total findings: 3 (2 critical, 1 medium)
 ```
 
 ### JSON Output
@@ -233,7 +233,7 @@ python smart-ai-scanner.py scan ./models --format sarif -o results.sarif
 
 ---
 
-## 🔧 Command Reference
+## Command Reference
 
 ### Scan Command
 
@@ -289,7 +289,7 @@ python smart-ai-scanner.py version
 
 ---
 
-## 📁 Reports
+## Reports
 
 All scans automatically save reports to the `reports/` directory with timestamps:
 
@@ -302,7 +302,7 @@ reports/
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 smart-ai-scanner/
@@ -330,7 +330,7 @@ smart-ai-scanner/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -342,13 +342,13 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🔗 Links
+## Links
 
 - **GitHub**: https://github.com/halvsek/smart-ai-scanner
 - **Issues**: https://github.com/halvsek/smart-ai-scanner/issues
@@ -356,7 +356,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built with security-first principles inspired by:
 - Aegis-ML security framework
